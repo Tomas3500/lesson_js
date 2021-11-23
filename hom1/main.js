@@ -9,7 +9,6 @@ console.log(first + second)
 console.log(first - second)
 console.log(first * second)
 console.log(first / second)
-console.log(first % second)
 
 //4
 console.log('task 4=========')
@@ -34,12 +33,12 @@ f2(20, 5)
 
 //6
 let str = 'Hello, Palmo';
-// alert(str);
+alert(str);
 
 //7
 const name = 'Aleksandr';
 const age = 28;
-// alert(`Я ${name}, мне ${age}`);
+alert(`Я ${name}, мне ${age}`);
 
 //8
 console.log('task - 8 ============')
