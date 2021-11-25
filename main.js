@@ -20,7 +20,25 @@ let name = 'Jhon';
 admin = name;
 let currentTime;
 let selectProduct;
-const COLOR_GREEN ='green';
+const COLOR_GREEN = 'green';
 const ageUser = 28;
 // alert(admin)
 // showBtn();
+
+//lesson-2
+let aLogin = prompt('ваш логин')
+let pasWord;
+if (aLogin === 'admin') {
+    pasWord = prompt('введите пароль')
+    if (pasWord === 'qwerty123') {
+        alert('Добро пожаловать')
+    }
+} else {
+    alert('не правильнЫй пароль')
+}
+
+for (let i = 0; i <= 100; i++) {
+    if (i % 2 === 0) {
+        console.log(i)
+    }
+}
