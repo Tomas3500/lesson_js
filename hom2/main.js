@@ -47,13 +47,13 @@ if (numberEnter.trim() === '' || !Number(numberEnter)) {
 
 //5
 for (let i = 1; i <= 500; i++) {
-    // console.log(i)
+    console.log(i)
 }
 
 //6
 
 for (let i = 1000; i >= 300; i--) {
-    // console.log(i)
+    console.log(i)
 }
 
 
