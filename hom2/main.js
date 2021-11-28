@@ -27,7 +27,7 @@ if (enterNumber.trim() === '' || isNaN(enterNumber)) {
     alert('число не четно')
 }
 
-//4
+// //4
 
 const numberEnter = prompt('Введите число от 1 до 100');
 if (numberEnter.trim() === '' || !Number(numberEnter)) {
@@ -43,7 +43,6 @@ if (numberEnter.trim() === '' || !Number(numberEnter)) {
 } else {
     console.log('диапозон не верный')
 }
-
 
 //5
 for (let i = 2; i <= 500; i++) {
@@ -65,10 +64,10 @@ for (let i = 1000; i >= 300; i--) {
 }
 
 
-//7
+// 7
 const numberUsers = prompt('введите число 1 до 100');
 for (let i = 1; i <= 100; i++) {
-    if (numberUsers.trim() === '' || isNaN(numberUsers)) {
+    if (numberUsers.trim() === '' || isNaN(+numberUsers)) {
         console.log('ВВЕДИТЕ ЧИСЛО!!')
     } else {
         console.log(numberUsers + i)
@@ -95,15 +94,19 @@ switch (sing) {
         alert(a + b)
         break
     case '/': {
-        alert(a / b)
-    }
-    case a / b === Infinity: {
-        alert('делить на 0 нельзя')
-        // break
+        if (b === 0) {
+            alert('Делить на 0 нельзя')
+        } else {
+            alert(a / b)
+        }
+        break
     }
     case '*': {
         alert(a * b)
         break
+    }
+    default: {
+        alert('введите математический знак')
     }
 }
 
