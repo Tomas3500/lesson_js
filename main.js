@@ -22,10 +22,10 @@ let currentTime;
 let selectProduct;
 const COLOR_GREEN = 'green';
 const ageUser = 28;
-// alert(admin)
-// showBtn();
+alert(admin)
+showBtn();
 
-//lesson-2
+// lesson-2
 let aLogin = prompt('ваш логин')
 let pasWord;
 if (aLogin === 'admin') {
@@ -42,3 +42,38 @@ for (let i = 0; i <= 100; i++) {
         console.log(i)
     }
 }
+
+
+//lesson 3
+
+function min(a, b) {
+    if (a > b) {
+        return a
+    }
+}
+
+min(4, 2)
+console.log(min(4, 2))
+
+function stepNumder(x, n) {
+    return x ** n
+}
+
+stepNumder(2, 2);
+console.log(stepNumder(2, 2));
+
+
+const user = {
+    // name:'John',
+    // surname:'Smith',
+}
+// user.name = Pete;
+// delete user.name
+
+function isEmpty(user){
+    for (key in user){
+        return false;
+    }
+    return true
+}
+isEmpty(user)
