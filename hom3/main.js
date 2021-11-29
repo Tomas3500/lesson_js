@@ -104,3 +104,84 @@ function editObject(objFull) {
 }
 
 console.log(editObject(objFull))
+//7
+const dataQuestion = [
+    {
+        id: 1,
+        question: 'вопрос 1',
+        answer: 'нет'
+
+    },
+    {
+        id: 2,
+        question: 'вопрос 2',
+        answer: 'нет'
+
+    },
+    {
+        id: 3,
+        question: 'вопрос 3',
+        answer: 'да'
+
+    },
+    {
+        id: 4,
+        question: 'вопрос 4',
+        answer: 'нет'
+
+    },
+    {
+        id: 5,
+        question: 'вопрос 5',
+        answer: 'да'
+
+    },
+    {
+        id: 6,
+        question: 'вопрос 6',
+        answer: 'нет'
+
+    }, {
+        id: 7,
+        question: 'вопрос 7',
+        answer: 'да'
+
+    },
+    {
+        id: 8,
+        question: 'вопрос 8',
+        answer: 'да'
+
+    },
+    {
+        id: 9,
+        question: 'вопрос 9',
+        answer: 'нет'
+
+    },
+    {
+        id: 10,
+        question: 'вопрос 10',
+        answer: 'да'
+
+    }
+
+]
+let promQuestion;
+let showAnswer = 0;
+
+function showQuestion(dataQuestion) {
+    for (let i = 0; i < dataQuestion.length; i++) {
+        promQuestion = prompt(`${dataQuestion[i]['question']}`).toLowerCase()
+        if (promQuestion === dataQuestion[i]['answer']) {
+            showAnswer++
+            // console.log(dataQuestion.answer);
+        } else if (promQuestion === '' || promQuestion !== dataQuestion[i]['answer']) {
+            promQuestion = 0
+        }
+    }
+    return alert(`Правильно ${showAnswer} из ${dataQuestion.length}`)
+}
+
+console.log(showQuestion(dataQuestion))
+
