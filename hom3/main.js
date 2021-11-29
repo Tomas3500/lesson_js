@@ -175,5 +175,4 @@ function showQuestion(dataQuestion) {
     return alert(`Правильно ${showAnswer} из ${dataQuestion.length}`)
 }
 
-console.log(showQuestion(dataQuestion))
 
