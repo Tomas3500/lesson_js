@@ -31,10 +31,8 @@ const objUser = {
 }
 
 function checkUserName(objUser) {
-    for (let key in objUser) {
-        if (objUser.name !== undefined) {
-            return true
-        }
+    if (objUser.name !== undefined) {
+        return true
     }
     return false
 
@@ -44,10 +42,7 @@ console.log(checkUserName(objUser));
 
 //4
 function showFullName(objUser) {
-    let out = '';
-    for (let key in objUser) {
-        return out += `${objUser.name} ${objUser.lastName}`
-    }
+    return `${objUser.name} ${objUser.lastName}`
 }
 
 console.log(showFullName(objUser));
@@ -175,9 +170,6 @@ function showQuestion(dataQuestion) {
         promQuestion = prompt(`${dataQuestion[i]['question']}`).toLowerCase()
         if (promQuestion === dataQuestion[i]['answer']) {
             showAnswer++
-            // console.log(dataQuestion.answer);
-        } else if (promQuestion === '' || promQuestion !== dataQuestion[i]['answer']) {
-            promQuestion = 0
         }
     }
     return alert(`Правильно ${showAnswer} из ${dataQuestion.length}`)
