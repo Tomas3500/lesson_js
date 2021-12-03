@@ -1,0 +1,40 @@
+.item {
+    max-width: 800px;
+    /*height: 200px;*/
+    margin: 0 auto;
+    border: 2px solid indigo;
+    text-align: center;
+    padding: 10px;
+}
+
+.block {
+    max-width: 100px;
+    margin: 10px auto;
+    min-height: 100px;
+    border: 1px solid black;
+}
+
+.red {
+    background: red;
+}
+
+.green {
+    background: green;
+}
+
+form {
+    display: block;
+}
+
+lable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-block input {
+    padding: 5px;
+    margin: 10px;
+    outline: none;
+
+}
