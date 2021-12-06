@@ -117,25 +117,28 @@ function validForm() {
     let loginUserInput = document.querySelector('.login-user');
     for (let item of arrValidata) {
         if (loginUserInput.value === item && loginUserInput.value.length > 4 || loginUserInput.value.length < 20) {
-            loginUserInput.style.border = '1px solid red'
+          return   loginUserInput.style.border = '1px solid red'
         }
     }
+    return false
 }
 
 function validataEmailUser() {
     let emailUser = document.querySelector('.email-user');
     if (emailUser.value.trim() === '' || emailUser.value.indexOf('@') === -1) {
-        emailUser.style.border = '1px solid red'
+       return  emailUser.style.border = '1px solid red'
     }
+    return false
 }
 
 function validataAgeUser() {
     let ageUser = document.querySelector('.age-user');
     if (typeof +ageUser.value === 'number' && +ageUser.value > 0) {
-        console.log('tttttt')
+       return true
     } else {
         ageUser.style.border = '1px solid red'
     }
+    return  false
 }
 
 function validataPassword() {
@@ -143,7 +146,7 @@ function validataPassword() {
     if (passUser) {
         for (let i = 0; i < passUser.value.length; i++) {
             if (typeof +passUser.value[i] === 'number' || passUser.value[i] === passUser.value[i].toUpperCase()) {
-                console.log('gooot')
+             return true
             } else {
                 passUser.style.border = '1px solid red'
             }
@@ -152,14 +155,22 @@ function validataPassword() {
     } else {
         passUser.style.border = '1px solid red'
     }
-
+    return false
 }
 
 
+function regist(){
+    if(validForm(),validataAgeUser(), validataEmailUser(),validataPassword()){
+        alert('успешно')
+    }
+}
+
+// regist();
 btnRegister.addEventListener('click', validForm,);
 btnRegister.addEventListener('click', validataAgeUser);
 btnRegister.addEventListener('click', validataEmailUser);
 btnRegister.addEventListener('click', validataPassword);
+btnRegister.addEventListener('click',  regist);
 
 
 //10
