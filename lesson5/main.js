@@ -117,7 +117,7 @@ function validForm() {
     let loginUserInput = document.querySelector('.login-user');
     for (let item of arrValidata) {
         if (loginUserInput.value === item && loginUserInput.value.length > 4 || loginUserInput.value.length < 20) {
-          return   loginUserInput.style.border = '1px solid red'
+            return loginUserInput.style.border = '1px solid red'
         }
     }
     return false
@@ -126,7 +126,7 @@ function validForm() {
 function validataEmailUser() {
     let emailUser = document.querySelector('.email-user');
     if (emailUser.value.trim() === '' || emailUser.value.indexOf('@') === -1) {
-       return  emailUser.style.border = '1px solid red'
+        return emailUser.style.border = '1px solid red'
     }
     return false
 }
@@ -134,33 +134,29 @@ function validataEmailUser() {
 function validataAgeUser() {
     let ageUser = document.querySelector('.age-user');
     if (typeof +ageUser.value === 'number' && +ageUser.value > 0) {
-       return true
+        return true
     } else {
         ageUser.style.border = '1px solid red'
     }
-    return  false
+    return false
 }
 
 function validataPassword() {
     let passUser = document.querySelector('.password-user');
     if (passUser) {
         for (let i = 0; i < passUser.value.length; i++) {
-            if (typeof +passUser.value[i] === 'number' || passUser.value[i] === passUser.value[i].toUpperCase()) {
-             return true
+            if (typeof passUser.value[i] === 'number' || passUser.value[i] === passUser.value[i].toUpperCase()) {
+                return true
             } else {
-                passUser.style.border = '1px solid red'
+                return passUser.style.border = '1px solid red'
             }
         }
-
-    } else {
-        passUser.style.border = '1px solid red'
     }
-    return false
 }
 
 
-function regist(){
-    if(validForm(),validataAgeUser(), validataEmailUser(),validataPassword()){
+function regist() {
+    if (validForm() && validataAgeUser() && validataEmailUser() && validataPassword()) {
         alert('успешно')
     }
 }
@@ -170,7 +166,7 @@ btnRegister.addEventListener('click', validForm,);
 btnRegister.addEventListener('click', validataAgeUser);
 btnRegister.addEventListener('click', validataEmailUser);
 btnRegister.addEventListener('click', validataPassword);
-btnRegister.addEventListener('click',  regist);
+btnRegister.addEventListener('click', regist);
 
 
 //10
@@ -194,8 +190,7 @@ eventsBtn.addEventListener('click', (event) => {
             oneNumber += key;
             out.textContent = oneNumber;
             console.log(oneNumber)
-        }
-        else {
+        } else {
             twoNumber += key;
             out.textContent = twoNumber;
             console.log(twoNumber)
@@ -265,7 +260,7 @@ function addProduct(id) {
 
 function renderCard() {
     let div = document.createElement('div')
-    for (let product of nameProduct){
+    for (let product of nameProduct) {
         div.innerHTML = product + '<br>'
     }
     modal.append(div)
