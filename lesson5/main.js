@@ -116,11 +116,11 @@ const arrValidata = ['.', '/', ',', '\n', '|']
 function validForm() {
     let loginUserInput = document.querySelector('.login-user');
     for (let item of arrValidata) {
-        if (loginUserInput.value === item && loginUserInput.value.length > 4 || loginUserInput.value.length < 20) {
-            return loginUserInput.style.border = '1px solid red'
+        if (loginUserInput.value.includes(item) || loginUserInput.value.length > 4 || loginUserInput.value.length < 20) {
+            return true
         }
     }
-    return false
+    return loginUserInput.style.border = '1px solid red'
 }
 
 function validataEmailUser() {
@@ -156,6 +156,10 @@ function validataPassword() {
 
 
 function regist() {
+    console.log(validForm())
+    console.log(validataAgeUser())
+    console.log(validataEmailUser())
+    console.log(validataPassword())
     if (validForm() && validataAgeUser() && validataEmailUser() && validataPassword()) {
         alert('успешно')
     }
