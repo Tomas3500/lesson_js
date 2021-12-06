@@ -238,6 +238,9 @@ clearBtn.addEventListener('click', clearAll)
 const basket = document.querySelector('.basket');
 const productCard = document.querySelector('.product');
 const modal = document.querySelector('.modal');
+const btnClear = document.querySelector('.clear-basket')
+const res = document.querySelector('.basket .res')
+const listCard = document.querySelector('.list-card')
 const dataProduct = {
     '112263': {
         'name': 'car1',
@@ -254,7 +257,8 @@ function addProduct(id) {
     let countProduct = parseInt(document.querySelector('.basket .res').innerHTML) + 1;
     console.log(countProduct)
     nameProduct.push(dataProduct[id]['name']);
-    document.querySelector('.basket .res').innerHTML = countProduct;
+    res.innerHTML = countProduct;
+    console.log(nameProduct)
     renderCard()
 }
 
@@ -263,7 +267,7 @@ function renderCard() {
     for (let product of nameProduct) {
         div.innerHTML = product + '<br>'
     }
-    modal.append(div)
+    listCard.append(div)
 }
 
 
@@ -274,8 +278,17 @@ productCard.addEventListener('click', (event) => {
     if (event.target.classList.contains('btn-product__card')) {
         let dataId = event.target.dataset.id
         addProduct(dataId)
-        // console.log(dataId)
     }
 })
 
-// addProduct();
+function clearBasket() {
+    let listCard = document.querySelector('.list-card');
+    while (listCard.firstChild) {
+        listCard.removeChild(listCard.firstChild);
+        console.log(listCard)
+    }
+    nameProduct = [];
+}
+
+
+btnClear.addEventListener('click', clearBasket)
