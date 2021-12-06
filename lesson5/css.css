@@ -38,3 +38,102 @@ lable {
     outline: none;
 
 }
+/*calc*/
+.calc{
+    max-width: 30%;
+    margin:  0 auto;
+    border: 1px solid black;
+    background: gainsboro;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.buttons{
+    display: grid;
+    grid-template-areas:
+    "seven eigth nine multi"
+    "four five siz minus"
+    "one two three plus"
+    "zero zero dot equal";
+    grid-gap: 7px;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.out p{
+    font-size: 30px;
+    text-align: right;
+}
+
+.btn{
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    background: darkgray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.btn.zero {
+    /*grid-area: zero;*/
+    width: 100%;
+    border-radius: 34px;
+}
+
+.bg-green{
+    background: forestgreen;
+}
+
+
+.product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basket img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.btn-product__card {
+    cursor: pointer;
+
+}
+
+.basket span{
+    font-size: 25px;
+}
+
+.modal{
+    margin: 0 auto;
+    padding: 10px;
+    width:500px;
+    border-radius: 30px;
+    border: 1px solid darkgrey;
+}
+
+.clear-basket{
+    cursor: pointer;
+}
+.card-product{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.modal{
+    display: none;
+}

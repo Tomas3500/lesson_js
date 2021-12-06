@@ -162,7 +162,115 @@ btnRegister.addEventListener('click', validataEmailUser);
 btnRegister.addEventListener('click', validataPassword);
 
 
+//10
+
+let oneNumber = '';
+let twoNumber = '';
+let sing = '';
+const eventsBtn = document.querySelector('.buttons')
+const out = document.querySelector('.out p')
+const arrNumberCalc = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
+const arrSing = ['x', '/', '-', '+'];
+
+eventsBtn.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('btn')) {
+        return
+    }
+    let key = event.target.textContent;
+
+    if (arrNumberCalc.includes(key)) {
+        if (twoNumber === '' && sing === '') {
+            oneNumber += key;
+            out.textContent = oneNumber;
+            console.log(oneNumber)
+        }
+        else {
+            twoNumber += key;
+            out.textContent = twoNumber;
+            console.log(twoNumber)
+        }
+    }
+
+    if (arrSing.includes(key)) {
+        sing = key;
+        out.textContent = sing;
+        console.log(oneNumber)
+    }
+
+    if (key === '=') {
+        switch (sing) {
+            case '+':
+                oneNumber = +oneNumber + +twoNumber
+                break;
+            case '-':
+                oneNumber = +oneNumber - +twoNumber
+                break;
+            case 'x':
+                oneNumber = +oneNumber / +twoNumber
+                break;
+            case '*':
+                oneNumber = +oneNumber * +twoNumber
+                break;
+        }
+        out.textContent = oneNumber
+    }
+
+})
+
+const clearBtn = document.querySelector('.clear');
+
+function clearAll() {
+    oneNumber = '';
+    twoNumber = '';
+    sing = '';
+    out.textContent = 0;
+}
+
+clearBtn.addEventListener('click', clearAll)
+
+//11
+const basket = document.querySelector('.basket');
+const productCard = document.querySelector('.product');
+const modal = document.querySelector('.modal');
+const dataProduct = {
+    '112263': {
+        'name': 'car1',
+    },
+    '112264': {
+        'name': 'car2',
+    }
+}
 
 
+let nameProduct = [];
 
+function addProduct(id) {
+    let countProduct = parseInt(document.querySelector('.basket .res').innerHTML) + 1;
+    console.log(countProduct)
+    nameProduct.push(dataProduct[id]['name']);
+    document.querySelector('.basket .res').innerHTML = countProduct;
+    renderCard()
+}
 
+function renderCard() {
+    let div = document.createElement('div')
+    for (let product of nameProduct){
+        div.innerHTML = product + '<br>'
+    }
+    modal.append(div)
+}
+// renderCard()
+// console.log(renderCard())
+
+basket.addEventListener('click', function showModal() {
+    modal.style.display = 'block'
+})
+productCard.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-product__card')) {
+        let dataId = event.target.dataset.id
+        addProduct(dataId)
+        // console.log(dataId)
+    }
+})
+
+// addProduct();
