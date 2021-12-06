@@ -259,8 +259,7 @@ function renderCard() {
     }
     modal.append(div)
 }
-// renderCard()
-// console.log(renderCard())
+
 
 basket.addEventListener('click', function showModal() {
     modal.style.display = 'block'
