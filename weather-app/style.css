@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Raleway, sans-serif;
+    list-style: none;
+    font-size: 20px;
+
+}
+
+.container {
+    max-width: 1320px;
+}
+
+
+main {
+    color: white;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    background: url("img/img-bg.jpg") center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+
+}
+
+.app {
+    line-height: 20px;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 12px;
+    border: 1px solid #32a5ebe3;
+    box-shadow: 2px 2px 30px 2px rgb(148 153 248)
+}
+
+.list-info-item li {
+    margin-right: 30px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: white;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    color: #a3c1df;
+}
+
+.header-weather__now {
+    padding: 10px 10px;
+}
+
+.list-info-item {
+    margin-top: 20px;
+}
+
+.time-date {
+    font-size: 18px;
+}
+
+.name {
+
+}
+
+.tab-content {
+    padding-top: 15px;
+}
+
+/*form-select*/
+.form-select {
+    display: block;
+    width: 20%;
+}
+
+.s-city {
+    margin-top: 30px;
+}
+
+.form-select:nth-child(2) {
+    margin-right: 10px;
+}
+
+.form-select:nth-child(1) {
+    margin-right: 10px;
+}
+
+.form-select {
+    background-color: transparent;
+    color: #a3c1df;
+}
+
+.btn {
+    color: #a3c1df;
+}
+
+.btn:hover {
+    color: #ffffff;
+}
+
