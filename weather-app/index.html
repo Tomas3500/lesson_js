@@ -5,8 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"-->
-    <!--          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Weather</title>
@@ -16,12 +14,15 @@
     <div class="container ">
         <div class="app">
             <div class="text-center header-weather__now">
-                <div class="current-time">
-                    <p class="time-date">Дата</p>
+                <div class="current time">
+                    <p class="current time-date"></p>
                 </div>
-                <div class="name-city"><h1 class="name">Kramatorsk</h1></div>
-                <p id='temp'></p>
-                <div class="icon-weather mt-3">Иконка</div>
+                <div class="status-name">
+                    <h1 class="current name"></h1>
+                    <p class="desc"></p>
+                </div>
+                <p class='temp'></p>
+                <div class="current icon-weather mt-3"></div>
                 <div class="d-flex justify-content-center s-city">
                     <select id="country" class="form-select" aria-label="Default select example">
                         <option value="UA">Украина</option>
@@ -35,18 +36,17 @@
                         <option value="524894">Москва</option>
                         <option value="501175">Ростов на Дону</option>
                     </select>
-                    <button class="btn">Поиск</button>
+                    <button class="btn" id="btn">Поиск</button>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex justify-content-center">
                     <ul class="d-flex p-0 list-info-item">
-                        <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                        <li class="info-item">Давление<p class="pressure"></p></li>
-                        <li class="info-item">Влажность<p class="humidity"></p></li>
-                        <li class="info-item">Температура воды<p class="temp-water"></p></li>
+                        <li class="info-item">Скорость ветра<p class="mt-3" id="wind"></p></li>
+                        <li class="info-item">Давление<p class="mt-3" id="pressure"></p></li>
+                        <li class="info-item">Влажность<p class="mt-3" id="humidity"></p></li>
+                        <li class="info-item">Видимость<p class="mt-3" id="visibility"></p></li>
                     </ul>
-
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -69,67 +69,62 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active text-center" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <!--                        <div class="text-center header-weather__now">-->
-                            <div class="data-tomorrow mb-3">Дата</div>
-                            <p id='temp-tomorrow mb-3'>Температура</p>
-                            <div class="icon-weather mt-3">Иконка</div>
+                            <!-- <div class="text-center header-weather__now">-->
+                            <div id="data-tomorrow" class=" mb-3">Дата</div>
+                            <div id="name-tomorrow" class="mb-3">Город</div>
+                            <p class='mb-3' id="temp-tomorrow">Температура</p>
+                            <div id="icon-weather" class="mt-3">Иконка</div>
                             <div class="row justify-content-between">
                                 <div class="d-flex justify-content-center">
                                     <ul class="d-flex p-0 list-info-item">
-                                        <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                                        <li class="info-item">Давление<p class="pressure"></p></li>
-                                        <li class="info-item">Влажность<p class="humidity"></p></li>
-                                        <li class="info-item">Температура воды<p class="temp-water"></p></li>
+                                        <li class="info-item">Скорость ветра <p id="wind1"></p></li>
+                                        <li class="info-item">Давление<p id="pressure1"></p></li>
+                                        <li class="info-item">Влажность<p id="humidity1"></p></li>
+                                        <li class="info-item">Видимость<p id="visibility1"></p></li>
                                     </ul>
-
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="d-flex justify-content-around">
-                                <div class="item-day">
-                                    <div class="data-tomorrow mb-3">Дата</div>
-                                    <p class='temp-day mb-3'>Температура</p>
-                                    <div class="icon-weather mt-3">Иконка</div>
+                                <div class="item-day text-center">
+                                    <div id="data-1" class="data-tomorrow mb-3">Дата</div>
+                                    <p id="temp-1" class='temp-day mb-3'>Температура</p>
+                                    <div id="icon-weather1" class="icon-weather mt-3">Иконка</div>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-center">
+                                            <ul class="p-0 list-info-item2">
+                                                <li class="info-item">Скорость ветра<p id="wind2"></p></li>
+                                                <li class="info-item">Давление<p id="pressure2"></p></li>
+                                                <li class="info-item">Влажность<p id="humidity2"></p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-day text-center">
+                                    <div id='data-2' class="data-tomorrow mb-3">Дата</div>
+                                    <p id="temp-2" class='temp-day-one mb-3'>Температура</p>
+                                    <div id="icon-weather2" class="icon-weather mt-3">Иконка</div>
                                     <div class="row">
                                         <div class="d-flex justify-content-center">
                                             <ul class="p-0 list-info-item">
-                                                <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                                                <li class="info-item">Давление<p class="pressure"></p></li>
-                                                <li class="info-item">Влажность<p class="humidity"></p></li>
-                                                <li class="info-item">Температура воды<p class="temp-water"></p></li>
+                                                <li class="info-item">Скорость ветра <p id="wind3"></p></li>
+                                                <li class="info-item">Давление<p id="pressure3"></p></li>
+                                                <li class="info-item">Влажность<p id="humidity3"></p></li>
                                             </ul>
-
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item-day">
-                                    <div class="data-tomorrow mb-3">Дата</div>
-                                    <p class='temp-day-one mb-3'>Температура</p>
-                                    <div class="icon-weather mt-3">Иконка</div>
+                                    <div id="data-3" class="data-tomorrow mb-3">Дата</div>
+                                    <p id="temp-3" class='temp-day-two mb-3'>Температура</p>
+                                    <div id="icon-weather3" class="icon-weather mt-3">Иконка</div>
                                     <div class="row">
                                         <div class="d-flex justify-content-center">
                                             <ul class="p-0 list-info-item">
-                                                <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                                                <li class="info-item">Давление<p class="pressure"></p></li>
-                                                <li class="info-item">Влажность<p class="humidity"></p></li>
-                                                <li class="info-item">Температура воды<p class="temp-water"></p></li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-day">
-                                    <div class="data-tomorrow mb-3">Дата</div>
-                                    <p class='temp-day-two mb-3'>Температура</p>
-                                    <div class="icon-weather mt-3">Иконка</div>
-                                    <div class="row">
-                                        <div class="d-flex justify-content-center">
-                                            <ul class="p-0 list-info-item">
-                                                <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                                                <li class="info-item">Давление<p class="pressure"></p></li>
-                                                <li class="info-item">Влажность<p class="humidity"></p></li>
-                                                <li class="info-item">Температура воды<p class="temp-water"></p></li>
+                                                <li class="info-item">Скорость ветра <p id="wind4"></p></li>
+                                                <li class="info-item">Давление<p id="pressure4"></p></li>
+                                                <li class="info-item">Влажность<p id="humidity4"></p></li>
                                             </ul>
 
                                         </div>
@@ -140,16 +135,16 @@
                         <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                             <div class="d-flex justify-content-around">
                                 <div class="item-day">
-                                    <div class="data-tomorrow mb-3">Дата</div>
-                                    <p class='temp-day mb-3'>Температура</p>
-                                    <div class="icon-weather mt-3">Иконка</div>
+                                    <div id="data-4" class="mb-3">Дата</div>
+                                    <p id='temp-4' class="mb-3">Температура</p>
+                                    <div id="icon-weather4" class="mt-3">Иконка</div>
                                     <div class="row">
                                         <div class="d-flex justify-content-center">
                                             <ul class="p-0 list-info-item">
-                                                <li class="info-item">Скорость ветра <p class="wind"></p></li>
-                                                <li class="info-item">Давление<p class="pressure"></p></li>
-                                                <li class="info-item">Влажность<p class="humidity"></p></li>
-                                                <li class="info-item">Температура воды<p class="temp-water"></p></li>
+                                                <li class="info-item">Скорость ветра <p id="wind5"></p></li>
+                                                <li class="info-item">Давление<p id="pressure6"></p></li>
+                                                <li class="info-item">Влажность<p id="humidity5"></p></li>
+                                                <li class="info-item">Температура воды<p id="temp-water5"></p></li>
                                             </ul>
 
                                         </div>
