@@ -9,29 +9,21 @@ let countryId = document.querySelector('#country');
 
 //currentWeather
 function currentWeather() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${cityId.value}&lang=ru&appid=${TOKEN}`)
+    let arrLocal = localStorage.getItem('id')
+    console.log(arrLocal)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${arrLocal || cityId.value}&lang=ru&appid=${TOKEN}`)
         .then(function (resp) {
             return resp.json()
         })
         .then(function (data) {
-            console.log(data)
-            console.log(countryId.value)
-            console.log(data['sys'].country )
-            console.log(data.id)
-            if (data.id == cityId.value && data['sys'].country == countryId.value) {
-                console.log(data)
-                showResultWeather(data, nameCity, desc)
-                allResWeather(data, '#wind ', '#pressure', '#humidity', '#visibility')
-            } else {
-               return  alert('Выберете город страны!')
-            }
+            showResultWeather(data, nameCity, desc)
+            allResWeather(data, '#wind ', '#pressure', '#humidity', '#visibility')
         })
-        .catch(function () {
-        })
+
 }
 
 function showResultWeather(data, nameCity, desc) {
-    let DATE = new Date(data.dt * 1000).toLocaleDateString('ru', {
+    let DATE = new Date(data.dt * 1000).toLocaleDateString('ru', {   //!!!!
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -47,19 +39,19 @@ function showResultWeather(data, nameCity, desc) {
 
 
 function dataHandler3() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId.value}&cnt=40&lang=ru&units=metric&appid=${TOKEN}`)
+    let arrLocal = localStorage.getItem('id')
+
+
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${arrLocal || cityId.value}&cnt=40&lang=ru&units=metric&appid=${TOKEN}`)
         .then(function (resp) {
             return resp.json()
         })
         .then(function (data) {
-            // if (data.id === cityId && data.sys.country === countryId.value){
             console.log(data)
             let nowData = new Date();
             let hours = nowData.getHours();
             let num = 8 - (Math.floor(hours / 3));
             let pos = data.list[num + 1].dt
-            // console.log(data.list[num + 11].dt_txt)
-            // console.log(pos)
             let DATE = new Date(pos * 1000).toLocaleDateString('ru', {
                 year: 'numeric',
                 month: 'long',
@@ -75,7 +67,7 @@ function dataHandler3() {
             document.querySelector('#pressure2').innerHTML = `${Math.floor((data.list[num + 10].main.pressure) * 0.76)} <br>мм рт.ст`;
             document.querySelector('#humidity2').innerHTML = `${data.list[num + 10].main.humidity}%`
             document.querySelector('#icon-weather1').innerHTML = '<img src ="https://openweathermap.org/img/wn/' + data.list[num + 10].weather[0].icon + '@2x.png">'
-            // res(data)
+            //
             document.querySelector('#data-2').innerHTML = data.list[num + 18].dt_txt;
             document.querySelector('#temp-2').innerHTML = `${Math.floor(data.list[num + 18].main['temp'])}&deg`;
             document.querySelector('#wind3').innerHTML = `${data.list[num + 18].wind.speed}<br>м/с`;
@@ -89,30 +81,24 @@ function dataHandler3() {
             document.querySelector('#pressure4').innerHTML = `${Math.floor((data.list[num + 27].main.pressure) * 0.76)} <br>мм рт.ст`;
             document.querySelector('#humidity4').innerHTML = `${data.list[num + 27].main.humidity}%`
             document.querySelector('#icon-weather3').innerHTML = '<img src ="https://openweathermap.org/img/wn/' + data.list[num + 27].weather[0].icon + '@2x.png">'
-            // }
-            // else {
-            //     alert('33333')
-            // }
-            // console.log(data.list[num+3].dt_txt)
+
 
         })
 
 }
 
-//allResultTadWeatherTomorrow
 function allResultTadWeatherTomorrow(DATE, data, num, n, dataTomorrow, tempT, iconWeather, nameTomorrow) {
     let dataTomor = document.querySelector(dataTomorrow)
     let tempTomor = document.querySelector(tempT)
     let iconTomor = document.querySelector(iconWeather)
     let name = document.querySelector(nameTomorrow)
-    name.innerHTML = `${cityId[cityId.selectedIndex].textContent}`;
+    name.innerHTML = `${data.city.name}`;
     dataTomor.innerHTML = DATE;
     tempTomor.innerHTML = `${Math.floor(data.list[num + n].main['temp'])}&deg`
     iconTomor.innerHTML = '<img src ="https://openweathermap.org/img/wn/' + data.list[num + n].weather[0].icon + '@2x.png">'
 
 }
 
-//
 function showResTab(data, windS, num, pressure, humidity, visibility) {
     let windSpeedTab = document.querySelector(windS);
     let presTab = document.querySelector(pressure)
@@ -139,8 +125,15 @@ function allResWeather(data, windS, pressure, humidity, visibility) {
 
 }
 
+function saveCityLocal() {
+    localStorage.setItem('id', cityId.value);
+}
+
+
+btn.addEventListener('click', saveCityLocal)
 btn.addEventListener('click', currentWeather)
 btn.addEventListener('click', dataHandler3)
+
 currentWeather();
 dataHandler3();
 
