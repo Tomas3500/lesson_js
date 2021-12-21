@@ -146,10 +146,126 @@ let arr1 = ['a', 'b', 'v', 1, 25, 25, 25, 25]
 let arr2 = ['Hello', 'Hu', 'Hi', 'Hi', 'Hi',]
 
 function conCatArr(arr1, arr2) {
-
-
+    let newArr = [];
+    let res = arr1.concat(arr2);
+    res.forEach(function (elem) {
+        if (!newArr.includes(elem)) {
+            return newArr.push(elem)
+        }
+    })
+    return newArr;
 }
 
 console.log(conCatArr(arr1, arr2))
 
 //6
+
+
+function modifyString(str) {
+    let out = '';
+    let resArrStr = str.split('-');
+    for (let key in resArrStr) {
+        if (key != 0) {
+            out += resArrStr[key][0].toUpperCase() + resArrStr[key].slice(1).toLowerCase()
+        } else {
+            out += resArrStr[key]
+        }
+    }
+    return out
+}
+
+console.log(modifyString('super-user-name'))
+
+//7
+const arrSing = ['x', '/', '-', '+'];
+
+function calc(str) {
+    let arrStr = str.split('');
+    for (let key in arrStr) {
+        if (arrStr.includes('+') || arrStr.includes('-')) {
+            let a = +arrStr[0] - +arrStr[2]
+            console.log(a);
+        }
+
+    }
+}
+
+console.log(calc('5-1'))
+
+//8
+const users = [
+    {
+        id: 1,
+        name: 'John',
+        age: 20
+    },
+    {
+        id: 2,
+        name: 'Marry',
+        age: 22
+    },
+    {
+        id: 3,
+        name: 'Poll',
+        age: 25
+    },
+]
+let newArr = []
+
+function getNameUser(users) {
+    users.forEach(function (item) {
+        newArr.push(item.name)
+    })
+    return newArr
+}
+
+console.log(getNameUser(users))
+
+//9
+const allArr = [1, 2, 'hello', 'word'];
+let res = []
+
+function transformArr(allArr) {
+    allArr.forEach(function (elem) {
+        if (typeof (elem) === 'number') {
+            res.push(elem * 2)
+        } else {
+            res.push(elem.split(''))
+        }
+    })
+    return res
+}
+
+// console.log(transformArr(allArr))
+
+//10
+function repeatWokrs(str) {
+    let newStr = str.trim().split(' ');
+    let a = newStr[0]
+    for (let i = 0; i < newStr.length; i++) {
+        if (newStr[i] > a) {
+            return true
+        }
+    }
+    return false;
+}
+
+console.log(repeatWokrs('помидор огурец помидор'))
+
+//11
+const forbiddenWords = ['blin', 'suka', 'kozol'];
+
+function examinationWork(str) {
+    for (let i = 0; i < forbiddenWords.length; i++) {
+        while (str.indexOf(forbiddenWords[i]) !== -1) {
+            str = str.replace(forbiddenWords[i], '')
+            return true
+        }
+    }
+    return false
+
+}
+
+console.log(examinationWork('privet blin'))
+
+//13
