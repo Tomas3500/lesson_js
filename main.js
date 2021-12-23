@@ -268,4 +268,99 @@ function examinationWork(str) {
 
 console.log(examinationWork('privet blin'))
 
+//12
+const arrStr = ['Привет', 1, null, 'как', '{}', 'дела'];
+
+function arrayToSentence(arrStr) {
+    for (let key in arrStr) {
+        if (typeof arrStr[key] == 'string') {
+            console.log(arrStr[key]);
+        }
+    }
+    return arrStr;
+}
+
+arrayToSentence(arrStr);
+
 //13
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+function createPhoneNumber(numbers) {
+    let format = '(xxx) xxx-xxxx';
+
+    for (let number of numbers) {
+        format = format.replace('x', number);
+        console.log(format)
+    }
+
+    return format;
+}
+
+createPhoneNumber(numbers);
+
+//14
+const users1 = [
+    {
+        id: 1,
+        name: 'John',
+        age: 20,
+        salary: 1000
+    },
+    {
+        id: 2,
+        name: 'Marry',
+        age: 22,
+        salary: 1500
+    },
+    {
+        id: 3,
+        name: 'Poll',
+        age: 25,
+        salary: 1200
+    },
+]
+
+function getHighestSalarty(users1) {
+    let res
+    for (let key in users1) {
+        users1.sort(function (a, b) {
+            res = b.name;
+        })
+    }
+    console.log(res);
+    return res;
+}
+
+getHighestSalarty(users1);
+//15
+let strFull = 'hello palmo it is good courses'
+
+// console.log(strFull.length)
+
+function validString(strFull) {
+    for (let i = 0; i < strFull.length; i++) {
+        if (strFull[i].length > 3 && strFull[i].length < 16) {
+            console.log('строка меньше 3')
+        } else if (isNaN(strFull[i]) || strFull[i].toUpperCase()) {
+            console.log('содержит число и заглавную букву')
+        } else {
+            console.log('все валидно')
+        }
+        console.log(strFull[i])
+    }
+}
+
+validString(strFull);
+
+//16
+const password = 'Palmoooo1'
+function validPassword(password) {
+    for (let i = 0; i < password.length; i++) {
+        if (password[i] === password[i].toUpperCase() && password.length > 6 && !isNaN(password[i])) {
+            console.log('валидный пароль');
+        }
+    }
+}
+
+validPassword(password);
+
